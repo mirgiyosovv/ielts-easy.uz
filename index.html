@@ -851,7 +851,7 @@ window.addEventListener('message', function(event) {
   // Update the most recent progress entry for this test with real score
   const t = window._currentTest || {};
   const tid = t.id || 'unknown';
-  const ttitle = testTitle || t.title || 'Test';
+  const ttitle = t.title || testTitle || 'Test';
   
   // Delete the 0-score entry and insert with real score
   fetch(`${SB}/rest/v1/user_progress?user_id=eq.${currentUser.id}&test_id=eq.${tid}&score=eq.0&order=completed_at.desc&limit=1`, {
