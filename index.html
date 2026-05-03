@@ -823,7 +823,6 @@ async function openTest(id){
     frame.srcdoc=html;
     // Save initial progress entry and store its concept for updating later
     window._currentTest = {id: t.id, title: t.title, questions: t.questions||40};
-    if(currentUser) saveProgress(t.id, t.title, 0, t.questions||40, 0);
     // Send dark mode state to iframe
     setTimeout(()=>{
       try{
@@ -853,14 +852,10 @@ window.addEventListener('message', function(event) {
   const tid = t.id || 'unknown';
   const ttitle = t.title || testTitle || 'Test';
   
-  // Delete the 0-score entry and insert with real score
-  fetch(`${SB}/rest/v1/user_progress?user_id=eq.${currentUser.id}&test_id=eq.${tid}&score=eq.0&order=completed_at.desc&limit=1`, {
-    method: 'DELETE',
-    headers: {'apikey': ANON, 'Authorization': 'Bearer ' + currentUser.token, 'Prefer': 'return=minimal'}
-  }).finally(() => {
-    saveProgress(tid, ttitle, score, total, timeSpent||0);
-    toast(`✅ Score saved: ${score}/${total} · Band ${score>=39?9:score>=37?8.5:score>=35?8:score>=32?7.5:score>=30?7:score>=26?6.5:score>=23?6:score>=18?5.5:score>=16?5:score>=13?4.5:score>=10?4:3}`, 'ok');
-  });
+  // Save progress with card title (kartadagi nom ishlatiladi)
+  saveProgress(tid, ttitle, score, total, timeSpent||0);
+  const band = score>=13?9:score>=12?8.5:score>=11?8:score>=10?7.5:score>=9?7:score>=8?6.5:score>=7?6:score>=6?5.5:score>=5?5:score>=4?4.5:3;
+  toast(`✅ Score saved: ${score}/${total} · Band ${band}`, 'ok');
 });
 
 /* ===== UNIFIED AUTH ===== */
