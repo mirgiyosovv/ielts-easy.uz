@@ -932,6 +932,22 @@ function doSearch(v){query=v;render()}
 async function openTest(id){
   const t=tests.find(x=>x.id===id);
   if(!t)return toast('Test not found','err');
+
+  // Static files (Writing etc.) — open in iframe using src directly
+  if(t.static){
+    document.getElementById('vtitle').textContent=t.title;
+    document.getElementById('viewer').classList.add('on');
+    document.body.style.overflow='hidden';
+    const frame=document.getElementById('vframe');
+    frame.srcdoc='';
+    frame.src=t.url;
+    window._currentTest = {id: t.id, title: t.title, questions: t.questions||40};
+    setTimeout(()=>{
+      try{ frame.contentWindow.postMessage({type:'theme',dark:document.body.classList.contains('dark')},'*'); }catch(e){}
+    },800);
+    return;
+  }
+
   document.getElementById('vtitle').textContent=t.title;
   document.getElementById('viewer').classList.add('on');
   document.body.style.overflow='hidden';
@@ -941,11 +957,6 @@ async function openTest(id){
     const res=await fetch(t.url);
     const html=await res.text();
     frame.srcdoc=html;
-    // Fix relative URLs for static cards (e.g. Writing_Task2.html)
-    if(t.static){
-      frame.srcdoc='';
-      frame.src=t.url;
-    }
     // Save initial progress entry and store its concept for updating later
     window._currentTest = {id: t.id, title: t.title, questions: t.questions||40};
     // Send dark mode state to iframe
