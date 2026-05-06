@@ -91,6 +91,7 @@ body.dark .hero-left p{color:rgba(255,255,255,.5)}
 body.dark .hf-item{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.08)}
 body.dark .tbadge.reading{background:#1e3a5f;color:#60a5fa}
 body.dark .tbadge.listening{background:#2d1b69;color:#a78bfa}
+body.dark .tbadge.writing{background:#064e3b;color:#6ee7b7}
 body.dark .card-stripe{opacity:.8}
 body.dark .ddot{background:#2a2d3e}
 body.dark .user-avatar{background:var(--blue2)}
@@ -216,12 +217,15 @@ body{font-family:var(--ff);background:var(--paper);color:var(--navy);min-height:
 .card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:transparent}
 .card-stripe{height:5px;background:linear-gradient(90deg,var(--blue2),#60a5fa)}
 .card[data-type=listening] .card-stripe{background:linear-gradient(90deg,var(--purple),#a78bfa)}
+.card[data-type=writing] .card-stripe{background:linear-gradient(90deg,#059669,#34d399)}
 .card:hover{box-shadow:0 8px 30px rgba(37,99,235,.12),0 2px 8px rgba(0,0,0,.06)}
 .card[data-type=listening]:hover{box-shadow:0 8px 30px rgba(109,40,217,.12),0 2px 8px rgba(0,0,0,.06)}
+.card[data-type=writing]:hover{box-shadow:0 8px 30px rgba(5,150,105,.12),0 2px 8px rgba(0,0,0,.06)}
 .card-top{padding:1.1rem 1.25rem .75rem;display:flex;align-items:center;justify-content:space-between}
 .tbadge{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:100px;font-size:11.5px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
 .tbadge.reading{background:#dbeafe;color:var(--blue2)}
 .tbadge.listening{background:var(--purple-bg);color:var(--purple)}
+.tbadge.writing{background:#d1fae5;color:#065f46}
 .ddots{display:flex;gap:3px}
 .ddot{width:7px;height:7px;border-radius:50%;background:var(--border)}
 .ddot.on{background:var(--gold)}
@@ -233,6 +237,8 @@ body{font-family:var(--ff);background:var(--paper);color:var(--navy);min-height:
 .bgo{padding:7px 16px;background:var(--navy);color:var(--white);border:none;border-radius:9px;font-family:var(--ff);font-size:13px;font-weight:600;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:5px}
 .bgo:hover{background:var(--blue2)}
 .card[data-type=listening] .bgo:hover{background:var(--purple)}
+.card[data-type=writing] .bgo{background:#059669}
+.card[data-type=writing] .bgo:hover{background:#047857}
 .delbtn{display:none;position:absolute;top:10px;right:10px;width:27px;height:27px;border-radius:7px;background:rgba(220,38,38,.1);color:var(--red2);border:none;font-size:16px;cursor:pointer;align-items:center;justify-content:center;z-index:5;transition:all .15s}
 .delbtn:hover{background:var(--red2);color:var(--white)}
 body.adm .delbtn{display:flex}
@@ -449,6 +455,7 @@ body.adm #fab{display:flex}
   <button class="fbtn on"  onclick="setF('all',this)">All</button>
   <button class="fbtn r"   onclick="setF('reading',this)">📖 Reading</button>
   <button class="fbtn l"   onclick="setF('listening',this)">🎧 Listening</button>
+  <button class="fbtn l"   onclick="setF('writing',this)">✍️ Writing</button>
   <div class="sbox">
     <svg width="13" height="13" stroke="#6b7280" stroke-width="2" fill="none" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="text" placeholder="Search…" oninput="doSearch(this.value)">
@@ -501,7 +508,7 @@ body.adm #fab{display:flex}
       <div class="fg"><label class="fl">Test Name *</label><input class="fi" id="f-title" type="text" placeholder="e.g. Cambridge 17 — Reading Test 3"></div>
       <div class="fg"><label class="fl">Description</label><textarea class="fta" id="f-desc" placeholder="Brief description…"></textarea></div>
       <div class="row2">
-        <div class="fg"><label class="fl">Type *</label><select class="fs" id="f-type"><option value="reading">📖 Reading</option><option value="listening">🎧 Listening</option></select></div>
+        <div class="fg"><label class="fl">Type *</label><select class="fs" id="f-type"><option value="reading">📖 Reading</option><option value="listening">🎧 Listening</option><option value="writing">✍️ Writing</option></select></div>
         <div class="fg"><label class="fl">Difficulty</label><select class="fs" id="f-diff"><option value="1">⭐ Easy</option><option value="2">⭐⭐ Medium</option><option value="3" selected>⭐⭐⭐ Hard</option></select></div>
       </div>
       <div class="row2">
@@ -851,8 +858,9 @@ function render(){
   grid.innerHTML=list.map((t,i)=>{
     const dots=[1,2,3].map(d=>`<div class="ddot${d<=t.difficulty?' on':''}"></div>`).join('');
     const isListening = t.type==='listening';
-    const icon = isListening ? '🎧' : '📖';
-    const typeLabel = isListening ? 'Listening' : 'Reading';
+    const isWriting = t.type==='writing';
+    const icon = isListening ? '🎧' : isWriting ? '✍️' : '📖';
+    const typeLabel = isListening ? 'Listening' : isWriting ? 'Writing' : 'Reading';
     return`<div class="card" data-type="${e(t.type)}" onclick="openTest('${e(t.id)}')" style="animation-delay:${i*40}ms">
       <button class="delbtn" onclick="askDel(event,'${e(t.id)}')">×</button>
       <button class="editbtn" onclick="openEdit(event,'${e(t.id)}')">✎</button>
