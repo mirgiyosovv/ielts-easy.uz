@@ -834,6 +834,23 @@ async function loadTests() {
       })
       .sort((a,b)=>b.id.localeCompare(a.id));
   } catch(e){ console.error(e); toast('Failed to load tests','err'); }
+  // Add static Writing Task 2 card (always shown)
+  const writingCard = {
+    id: 'writing_task2',
+    title: 'REAL IELTS WRITING | TASK 2',
+    desc: 'AI-powered essay checker. Get instant band score on all 4 criteria.',
+    type: 'writing',
+    difficulty: 3,
+    questions: 1,
+    time: 40,
+    url: 'Writing_Task2.html',
+    static: true
+  };
+  // Only add if not already in tests
+  if(!tests.find(t=>t.id==='writing_task2')) {
+    tests.push(writingCard);
+  }
+
   showLoad(false);
   render();
   updateStats();
@@ -924,6 +941,11 @@ async function openTest(id){
     const res=await fetch(t.url);
     const html=await res.text();
     frame.srcdoc=html;
+    // Fix relative URLs for static cards (e.g. Writing_Task2.html)
+    if(t.static){
+      frame.srcdoc='';
+      frame.src=t.url;
+    }
     // Save initial progress entry and store its concept for updating later
     window._currentTest = {id: t.id, title: t.title, questions: t.questions||40};
     // Send dark mode state to iframe
