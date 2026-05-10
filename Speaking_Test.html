@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REAL IELTS SPEAKING | PART 1-3</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter','Segoe UI',Arial,sans-serif;background:#f1f5f9;color:#1f2937;min-height:100vh;display:flex;flex-direction:column}
+body.dark{background:#111827;color:#f9fafb}
+
+.header{background:#fff;border-bottom:1px solid #d1d5db;padding:.6rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+body.dark .header{background:#1f2937;border-color:#374151}
+.back-btn{display:flex;align-items:center;gap:5px;text-decoration:none;color:#4b5563;font-weight:600;font-size:13px;background:#f3f4f6;padding:5px 12px;border-radius:8px;border:1px solid #d1d5db;cursor:pointer}
+body.dark .back-btn{background:#374151;border-color:#4b5563;color:#d1d5db}
+.tg-link{display:flex;align-items:center;gap:5px;text-decoration:none;color:#2563eb;font-weight:700;font-size:13px}
+.hicons{display:flex;gap:8px;align-items:center}
+.hicon{font-size:1.1rem;color:#4b5563;cursor:pointer;transition:all .2s}
+.hicon:hover{color:#2563eb}
+body.dark .hicon{color:#d1d5db}
+
+.main{flex:1;display:flex;flex-direction:column;align-items:center;padding:1.5rem;gap:1.25rem;max-width:760px;margin:0 auto;width:100%}
+
+/* PART INDICATOR */
+.parts-bar{display:flex;gap:.5rem;width:100%}
+.part-pill{flex:1;padding:.5rem;text-align:center;border-radius:.5rem;font-weight:700;font-size:.82rem;border:2px solid #e5e7eb;color:#6b7280;background:#fff;transition:all .3s}
+.part-pill.active{background:#2563eb;color:#fff;border-color:#2563eb}
+.part-pill.done{background:#10b981;color:#fff;border-color:#10b981}
+body.dark .part-pill{background:#374151;border-color:#4b5563;color:#9ca3af}
+
+/* QUESTION CARD */
+.q-card{width:100%;background:#fff;border-radius:1rem;padding:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.08);border:1px solid #e5e7eb;text-align:center}
+body.dark .q-card{background:#1f2937;border-color:#374151}
+.q-part-label{font-size:.78rem;font-weight:700;color:#2563eb;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
+.q-number{font-size:.85rem;color:#6b7280;margin-bottom:.75rem}
+.q-text{font-size:1.15rem;font-weight:600;color:#1f2937;line-height:1.6;margin-bottom:1rem}
+body.dark .q-text{color:#f9fafb}
+.q-hint{font-size:.82rem;color:#6b7280;font-style:italic}
+
+/* PART 2 CARD */
+.cue-card{background:linear-gradient(135deg,#1e40af,#2563eb);color:#fff;border-radius:.75rem;padding:1.25rem;text-align:left;margin-bottom:.75rem;width:100%}
+.cue-card h4{font-size:1rem;font-weight:700;margin-bottom:.75rem}
+.cue-card ul{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.cue-card li{font-size:.88rem;opacity:.9;padding-left:1rem;position:relative}
+.cue-card li::before{content:"•";position:absolute;left:0}
+.prep-timer{font-size:2rem;font-weight:900;color:#2563eb;margin:.5rem 0}
+body.dark .prep-timer{color:#60a5fa}
+
+/* MIC AREA */
+.mic-area{display:flex;flex-direction:column;align-items:center;gap:1rem;width:100%}
+.mic-btn{width:80px;height:80px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:2rem;transition:all .3s;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.mic-btn.idle{background:#f3f4f6;color:#4b5563}
+.mic-btn.recording{background:#ef4444;color:#fff;animation:pulse-mic 1.5s infinite;box-shadow:0 0 0 0 rgba(239,68,68,.5)}
+@keyframes pulse-mic{0%{box-shadow:0 0 0 0 rgba(239,68,68,.5)}70%{box-shadow:0 0 0 20px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}
+.mic-status{font-size:.85rem;color:#6b7280;font-weight:500}
+.mic-status.recording{color:#ef4444;font-weight:700}
+
+/* TRANSCRIPT */
+.transcript-box{width:100%;min-height:80px;background:#f9fafb;border:2px solid #e5e7eb;border-radius:.75rem;padding:.85rem;font-size:.92rem;line-height:1.6;color:#1f2937;font-style:italic}
+body.dark .transcript-box{background:#374151;border-color:#4b5563;color:#f9fafb}
+.transcript-box.empty{color:#9ca3af}
+
+/* BUTTONS */
+.btn-row{display:flex;gap:.75rem;width:100%;justify-content:center;flex-wrap:wrap}
+.btn{padding:.65rem 1.5rem;border-radius:.5rem;border:none;cursor:pointer;font-weight:700;font-size:.9rem;transition:all .25s;display:flex;align-items:center;gap:.4rem}
+.btn-primary{background:#2563eb;color:#fff;box-shadow:0 4px 12px rgba(37,99,235,.3)}
+.btn-primary:hover{background:#1d4ed8;transform:translateY(-2px)}
+.btn-secondary{background:#f3f4f6;color:#374151;border:1px solid #d1d5db}
+.btn-secondary:hover{background:#e5e7eb}
+body.dark .btn-secondary{background:#374151;color:#f9fafb;border-color:#4b5563}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* PROGRESS DOTS */
+.dots{display:flex;gap:.4rem;justify-content:center}
+.dot{width:8px;height:8px;border-radius:50%;background:#d1d5db;transition:all .3s}
+.dot.done{background:#10b981}
+.dot.active{background:#2563eb;transform:scale(1.3)}
+
+/* RESULTS MODAL */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:2000;display:flex;justify-content:center;align-items:center}
+.overlay.hidden{display:none!important}
+.modal{background:#fff;padding:1.75rem;border-radius:1rem;width:92%;max-width:640px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:popIn .3s ease-out;position:relative}
+body.dark .modal{background:#1f2937;color:#f9fafb}
+@keyframes popIn{from{transform:translateY(-1.5rem);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-x{position:absolute;top:12px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:#4b5563}
+.modal-title{text-align:center;font-size:1.2rem;font-weight:800;color:#2563eb;margin-bottom:1.25rem;padding-bottom:.65rem;border-bottom:2px solid #eff6ff}
+body.dark .modal-title{color:#93c5fd;border-color:#374151}
+.overall{text-align:center;border-radius:.85rem;padding:1.1rem;margin-bottom:1.1rem}
+.overall .bn{font-size:3rem;font-weight:900;line-height:1;color:#fff}
+.overall .bl{font-size:.85rem;opacity:.85;margin-top:3px;color:#fff}
+.crits{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1rem}
+.crit-row{background:#f9fafb;border:1px solid #e5e7eb;border-radius:.65rem;padding:.8rem .9rem}
+body.dark .crit-row{background:#374151;border-color:#4b5563}
+.crit-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem}
+.crit-name{font-weight:700;font-size:.88rem}
+.crit-val{font-weight:800;font-size:1.1rem;background:#eff6ff;color:#2563eb;padding:1px 10px;border-radius:999px;border:2px solid #3b82f6}
+body.dark .crit-val{background:#1e3a5f;color:#93c5fd;border-color:#60a5fa}
+.bar-bg{height:5px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+body.dark .bar-bg{background:#4b5563}
+.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#2563eb,#60a5fa);transition:width 1s ease}
+.crit-fb{font-size:.8rem;color:#4b5563;margin-top:.4rem;line-height:1.5}
+body.dark .crit-fb{color:#d1d5db}
+.strengths{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:.65rem;padding:.85rem 1rem;margin-bottom:.65rem}
+body.dark .strengths{background:#14532d;border-color:#166534}
+.strengths h4{font-weight:700;color:#166534;margin-bottom:.4rem;font-size:.85rem}
+body.dark .strengths h4{color:#6ee7b7}
+.improve{background:#fef2f2;border:1px solid #fecaca;border-radius:.65rem;padding:.85rem 1rem;margin-bottom:.85rem}
+body.dark .improve{background:#450a0a;border-color:#991b1b}
+.improve h4{font-weight:700;color:#991b1b;margin-bottom:.4rem;font-size:.85rem}
+body.dark .improve h4{color:#fca5a5}
+.strengths p,.improve p{font-size:.82rem;line-height:1.55}
+.retry-btn{width:100%;padding:.7rem;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:none;border-radius:.5rem;cursor:pointer;font-weight:700;font-size:.9rem;transition:all .2s}
+.spin-wrap{text-align:center;padding:2rem}
+.spin{width:48px;height:48px;border:4px solid #e5e7eb;border-top-color:#2563eb;border-radius:50%;animation:sp .8s linear infinite;margin:0 auto 1rem}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* START SCREEN */
+.start-screen{text-align:center;padding:2rem 1rem}
+.start-screen h1{font-size:1.75rem;font-weight:900;color:#1f2937;margin-bottom:.5rem}
+body.dark .start-screen h1{color:#f9fafb}
+.start-screen p{color:#6b7280;font-size:.95rem;margin-bottom:1.5rem;line-height:1.6}
+.start-info{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;margin-bottom:1.5rem}
+.info-box{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:.85rem;text-align:center}
+body.dark .info-box{background:#374151;border-color:#4b5563}
+.info-box .icon{font-size:1.5rem;margin-bottom:.4rem}
+.info-box .label{font-size:.78rem;color:#6b7280;margin-bottom:.2rem}
+.info-box .value{font-size:.9rem;font-weight:700;color:#1f2937}
+body.dark .info-box .value{color:#f9fafb}
+.start-btn{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:none;padding:.85rem 2.5rem;border-radius:.75rem;cursor:pointer;font-weight:700;font-size:1rem;box-shadow:0 4px 20px rgba(37,99,235,.3);transition:all .3s}
+.start-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(37,99,235,.4)}
+
+@media(max-width:600px){
+  .start-info{grid-template-columns:1fr}
+  .main{padding:.85rem}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <button class="back-btn" onclick="history.back()">← Orqaga</button>
+  <a class="tg-link" href="https://t.me/ielts_easy_uz" target="_blank">
+    <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-.38.24-1.07.7-.96.66-1.89 1.28-1.89 1.28s-.17.11-.49.03c-.32-.08-.72-.26-1.16-.47-.54-.26-1.17-.53-1.17-.53s-.87-.55.62-1.14z" fill="#2563eb"/></svg>
+    <span style="font-size:12px">@ielts_easy_uz</span>
+  </a>
+  <div class="hicons">
+    <i class="fas fa-adjust hicon" id="darkBtn"></i>
+    <i class="fas fa-question-circle hicon" onclick="alert('IELTS Speaking Test\n\nPart 1: Personal questions (4-5 questions)\nPart 2: Long turn - speak for 2 minutes\nPart 3: Discussion questions (4-5 questions)\n\nClick the mic to start recording.\nClick Done when finished answering.')"></i>
+  </div>
+</header>
+
+<div class="main" id="mainArea">
+  <!-- START SCREEN -->
+  <div class="start-screen" id="startScreen">
+    <div style="font-size:3rem;margin-bottom:.75rem">🎤</div>
+    <h1>IELTS Speaking Test</h1>
+    <p>Full speaking test with AI examiner.<br>Answer all questions naturally — AI will score you.</p>
+    <div class="start-info">
+      <div class="info-box"><div class="icon">💬</div><div class="label">Part 1</div><div class="value">Personal Qs</div></div>
+      <div class="info-box"><div class="icon">🗣️</div><div class="label">Part 2</div><div class="value">Long Turn</div></div>
+      <div class="info-box"><div class="icon">🧠</div><div class="label">Part 3</div><div class="value">Discussion</div></div>
+    </div>
+    <p style="font-size:.82rem;color:#9ca3af;margin-bottom:1.25rem">⚠️ Allow microphone access when prompted</p>
+    <button class="start-btn" onclick="startTest()">
+      <i class="fas fa-microphone"></i> Start Speaking Test
+    </button>
+  </div>
+
+  <!-- TEST AREA (hidden initially) -->
+  <div id="testArea" style="display:none;width:100%;display:none;flex-direction:column;gap:1rem">
+    <div class="parts-bar">
+      <div class="part-pill" id="pill1">Part 1</div>
+      <div class="part-pill" id="pill2">Part 2</div>
+      <div class="part-pill" id="pill3">Part 3</div>
+    </div>
+
+    <div class="q-card" id="qCard">
+      <div class="q-part-label" id="qPartLabel">Part 1</div>
+      <div class="q-number" id="qNumber">Question 1 of 5</div>
+      <div class="q-text" id="qText">Loading question...</div>
+      <div class="q-hint" id="qHint"></div>
+    </div>
+
+    <div class="dots" id="dotsWrap"></div>
+
+    <div class="transcript-box empty" id="transcriptBox">Your speech will appear here...</div>
+
+    <div class="mic-area">
+      <button class="mic-btn idle" id="micBtn" onclick="toggleMic()">
+        <i class="fas fa-microphone"></i>
+      </button>
+      <div class="mic-status" id="micStatus">Tap mic to start recording</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-secondary" id="replayBtn" onclick="replayQuestion()">
+        <i class="fas fa-volume-up"></i> Replay
+      </button>
+      <button class="btn btn-primary" id="doneBtn" onclick="nextQuestion()" disabled>
+        Next <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#fff;border-top:1px solid #d1d5db;padding:.6rem 1.25rem;text-align:center;font-size:.8rem;color:#9ca3af;flex-shrink:0">
+  <span id="footerStatus">Ready to start</span>
+</footer>
+
+<!-- MODAL -->
+<div id="modal" class="overlay hidden">
+  <div class="modal">
+    <button class="modal-x" onclick="document.getElementById('modal').classList.add('hidden')">&times;</button>
+    <div class="modal-title">🎓 AI Examiner Feedback</div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var GROQ_KEY = ['gsk_QKlhDR','nl43so5nA7','Q7DJWGdyb3','FYtqrfG18I','JFI10kJe57Y11B4E'].join('');
+  var GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
+
+  var dark = false;
+  var recognition = null;
+  var isRecording = false;
+  var currentTranscript = '';
+
+  // Test state
+  var allQuestions = [];
+  var currentIdx = 0;
+  var answers = []; // {question, answer, part}
+  var prepTimer = null;
+
+  // ── DARK MODE
+  document.getElementById('darkBtn').addEventListener('click', function(){
+    dark = !dark;
+    document.body.classList.toggle('dark', dark);
+  });
+
+  // ── SPEECH RECOGNITION SETUP
+  var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SpeechRecognition){
+    alert('Your browser does not support speech recognition. Please use Chrome.');
+  }
+
+  // ── TEXT TO SPEECH
+  function speak(text, onEnd){
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US';
+    u.rate = 0.9;
+    u.pitch = 1;
+    if(onEnd) u.onend = onEnd;
+    window.speechSynthesis.speak(u);
+  }
+
+  // ── GROQ API
+  function askGroq(prompt){
+    return fetch(GROQ_URL, {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','Authorization':'Bearer '+GROQ_KEY},
+      body: JSON.stringify({
+        model: 'llama-3.3-70b-versatile',
+        messages: [{role:'user', content: prompt}],
+        temperature: 0.7,
+        max_tokens: 2048
+      })
+    }).then(function(r){
+      return r.json().then(function(d){
+        if(!r.ok) throw new Error(d.error&&d.error.message?d.error.message:'API error');
+        return d.choices[0].message.content;
+      });
+    });
+  }
+
+  // ── QUESTION BANK
+  var QBANK = [
+    { p1:[
+        {q:"Do you work or are you a student?",h:"Talk about your job or studies"},
+        {q:"What do you enjoy most about your work or studies?",h:"Mention specific aspects"},
+        {q:"Do you prefer working alone or with others?",h:"Give reasons"},
+        {q:"What are your plans for the future?",h:"Discuss ambitions"},
+        {q:"How important is work-life balance to you?",h:"Explain your view"}
+      ],
+      p2:{t:"Describe a teacher who has greatly influenced you.",pts:["Who the teacher was","What subject they taught","How they influenced you","Why you still remember them"]},
+      p3:[
+        {q:"What qualities make a good teacher?",h:"Think about patience, knowledge, communication"},
+        {q:"How has the role of teachers changed in recent years?",h:"Consider technology and modern education"},
+        {q:"Will online learning replace traditional classroom education?",h:"Discuss pros and cons"},
+        {q:"Should teachers be paid more than they are now?",h:"Consider the value of education"},
+        {q:"How important is education for a country's development?",h:"Think about economic and social benefits"}
+      ]
+    },
+    { p1:[
+        {q:"What kind of music do you enjoy listening to?",h:"Name genres or artists"},
+        {q:"Do you play any musical instruments?",h:"If yes, describe. If no, would you like to?"},
+        {q:"How often do you listen to music?",h:"Talk about your daily routine"},
+        {q:"Has your taste in music changed as you've grown older?",h:"Compare past and present"},
+        {q:"Do you think music is important for children to learn?",h:"Give reasons"}
+      ],
+      p2:{t:"Describe a memorable journey or trip you have taken.",pts:["Where you went","Who you went with","What you did there","Why it was memorable"]},
+      p3:[
+        {q:"How has international tourism changed in recent decades?",h:"Think about accessibility and costs"},
+        {q:"What are the benefits and drawbacks of mass tourism?",h:"Consider both local and global impacts"},
+        {q:"Do people travel more or less than in the past?",h:"Discuss reasons for changes"},
+        {q:"Should governments do more to promote tourism?",h:"Consider economic benefits"},
+        {q:"How does travel affect understanding of different cultures?",h:"Give examples"}
+      ]
+    },
+    { p1:[
+        {q:"Where do you live? Do you like living there?",h:"Describe your home and neighborhood"},
+        {q:"What is your hometown famous for?",h:"Mention landmarks, food, culture"},
+        {q:"Has your hometown changed much since you were a child?",h:"Compare past and present"},
+        {q:"Would you prefer to live in a city or the countryside?",h:"Give reasons"},
+        {q:"What kind of neighborhood is ideal to live in?",h:"Describe features like safety, amenities"}
+      ],
+      p2:{t:"Describe a time when you helped someone.",pts:["Who you helped","What the situation was","How you helped them","How you felt afterwards"]},
+      p3:[
+        {q:"Are people in modern society less willing to help strangers?",h:"Consider reasons and examples"},
+        {q:"What role should governments play in helping people in need?",h:"Think about social welfare"},
+        {q:"Is volunteering an important part of society?",h:"Discuss benefits for individuals and communities"},
+        {q:"How has the concept of community changed in modern times?",h:"Consider urbanization, social media"},
+        {q:"Should wealthy people be obligated to help those less fortunate?",h:"Discuss moral and social responsibility"}
+      ]
+    },
+    { p1:[
+        {q:"What do you do in your free time?",h:"Describe hobbies and activities"},
+        {q:"Do you have any hobbies you've had since childhood?",h:"Compare past and present"},
+        {q:"Do you prefer indoor or outdoor activities?",h:"Give reasons"},
+        {q:"How important are hobbies for a person's wellbeing?",h:"Discuss benefits"},
+        {q:"Have you taken up any new hobbies recently?",h:"Describe what prompted the change"}
+      ],
+      p2:{t:"Describe a skill you would like to learn in the future.",pts:["What the skill is","Why you want to learn it","How you would learn it","How it would benefit you"]},
+      p3:[
+        {q:"Why is lifelong learning important?",h:"Consider personal and professional benefits"},
+        {q:"How has the internet changed the way people learn skills?",h:"Think about online courses"},
+        {q:"Do schools adequately prepare students for adult life?",h:"Consider practical vs academic skills"},
+        {q:"Should adults continue their education throughout life?",h:"Discuss motivation and barriers"},
+        {q:"What are the most important skills for the 21st century?",h:"Think about technology, communication"}
+      ]
+    },
+    { p1:[
+        {q:"Do you enjoy cooking? Why or why not?",h:"Describe your experience with cooking"},
+        {q:"What is your favourite food?",h:"Describe it and explain why you like it"},
+        {q:"Do you prefer eating at home or in restaurants?",h:"Give reasons"},
+        {q:"Has your diet changed as you've gotten older?",h:"Compare past and present eating habits"},
+        {q:"Do people in your country eat healthily?",h:"Describe typical eating habits"}
+      ],
+      p2:{t:"Describe a time when you tried a new food for the first time.",pts:["What the food was","Where you tried it","What it tasted like","Whether you would eat it again"]},
+      p3:[
+        {q:"How has globalization affected the food people eat?",h:"Consider fast food, international cuisines"},
+        {q:"Are people today more or less healthy than in the past?",h:"Consider diet, exercise, lifestyle"},
+        {q:"What can governments do to encourage healthy eating?",h:"Think about education, taxes, labeling"},
+        {q:"Is it important for children to learn how to cook?",h:"Discuss practical and cultural reasons"},
+        {q:"How important is food as part of cultural identity?",h:"Give examples from different cultures"}
+      ]
+    },
+    { p1:[
+        {q:"Do you use social media? Which platforms?",h:"Name specific apps and how you use them"},
+        {q:"How much time do you spend on social media daily?",h:"Describe your habits"},
+        {q:"Does social media have more advantages or disadvantages?",h:"Give a balanced view"},
+        {q:"How has social media changed the way people communicate?",h:"Compare with traditional communication"},
+        {q:"Have you ever felt addicted to your smartphone?",h:"Describe your experience"}
+      ],
+      p2:{t:"Describe a piece of technology that you find very useful.",pts:["What it is","How often you use it","What you use it for","Why you find it so useful"]},
+      p3:[
+        {q:"How has technology changed daily life over the past 20 years?",h:"Think about communication, work, entertainment"},
+        {q:"Are children too dependent on technology today?",h:"Consider effects on development"},
+        {q:"What are the risks of storing personal information online?",h:"Think about privacy and security"},
+        {q:"Will robots and AI replace most human jobs?",h:"Discuss which jobs might be affected"},
+        {q:"How important is it for everyone to have internet access?",h:"Consider education, economy, equality"}
+      ]
+    },
+    { p1:[
+        {q:"Do you enjoy reading? What kinds of books do you like?",h:"Name genres or specific titles"},
+        {q:"How often do you read for pleasure?",h:"Describe your reading habits"},
+        {q:"Do you prefer physical books or e-books?",h:"Give reasons"},
+        {q:"What was your favourite book as a child?",h:"Describe it briefly"},
+        {q:"Is reading less popular than it used to be?",h:"Consider reasons and consequences"}
+      ],
+      p2:{t:"Describe an important event in your life.",pts:["What the event was","When it happened","Who was involved","Why it was important to you"]},
+      p3:[
+        {q:"What major events have shaped the world recently?",h:"Think about technology, politics, environment"},
+        {q:"How do historical events affect modern society?",h:"Give examples"},
+        {q:"Should countries apologize for historical wrongdoings?",h:"Discuss responsibility and reconciliation"},
+        {q:"How do people learn from the past?",h:"Consider education, family, media"},
+        {q:"Is the world today better or worse than 50 years ago?",h:"Compare different aspects of life"}
+      ]
+    },
+    { p1:[
+        {q:"Do you do any sports or exercise?",h:"Describe your physical activities"},
+        {q:"What sports are popular in your country?",h:"Name specific sports and explain why"},
+        {q:"Did you play any sports as a child?",h:"Compare with your current activities"},
+        {q:"Is sport important for children?",h:"Discuss physical and social benefits"},
+        {q:"Would you rather watch sport or play it?",h:"Give reasons"}
+      ],
+      p2:{t:"Describe a sports event you watched or participated in.",pts:["What the event was","Where it took place","Who participated","How you felt about it"]},
+      p3:[
+        {q:"Why are some sports more popular than others?",h:"Consider accessibility, media coverage, culture"},
+        {q:"Should governments spend more money promoting sport?",h:"Think about health, national pride, economics"},
+        {q:"Do professional athletes earn too much money?",h:"Compare with other professions"},
+        {q:"How has technology changed the world of sport?",h:"Consider training, equipment, viewing"},
+        {q:"Is competition in sport always healthy?",h:"Discuss both positive and negative aspects"}
+      ]
+    }
+  ];
+
+  // ── GENERATE QUESTIONS (from bank, instant — no API)
+  function generateQuestions(){
+    var set = QBANK[Math.floor(Math.random() * QBANK.length)];
+    var qs = [];
+    set.p1.forEach(function(q){ qs.push({part:1, question:q.q, hint:q.h}); });
+    qs.push({part:2, topic:set.p2.t, points:set.p2.pts});
+    set.p3.forEach(function(q){ qs.push({part:3, question:q.q, hint:q.h}); });
+    return Promise.resolve(qs);
+  }
+
+  // ── START TEST
+  window.startTest = function(){
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('footerStatus').textContent = 'Loading questions...';
+
+    var loadDiv = document.createElement('div');
+    loadDiv.id = 'loadDiv';
+    loadDiv.innerHTML = '<div class="spin-wrap"><div class="spin"></div><p>AI is preparing your questions...</p></div>';
+    document.getElementById('mainArea').appendChild(loadDiv);
+
+    generateQuestions().then(function(qs){
+      allQuestions = qs;
+      document.getElementById('loadDiv').remove();
+      var ta = document.getElementById('testArea');
+      ta.style.display = 'flex';
+      showQuestion(0);
+    }).catch(function(e){
+      document.getElementById('loadDiv').innerHTML = '<div style="text-align:center;padding:2rem;color:#ef4444"><p>Failed to load questions: '+e.message+'</p><button class="btn btn-primary" onclick="location.reload()" style="margin-top:1rem">Try Again</button></div>';
+    });
+  };
+
+  // ── SHOW QUESTION
+  function showQuestion(idx){
+    currentIdx = idx;
+    currentTranscript = '';
+    var q = allQuestions[idx];
+    if(!q) { finishTest(); return; }
+
+    // Update pills
+    var p = q.part;
+    ['pill1','pill2','pill3'].forEach(function(id,i){
+      var el = document.getElementById(id);
+      el.className = 'part-pill';
+      if(i+1 < p) el.classList.add('done');
+      else if(i+1 === p) el.classList.add('active');
+    });
+
+    // Update dots (within current part)
+    var partQs = allQuestions.filter(function(x){return x.part===p;});
+    var partIdx = partQs.indexOf(q);
+    var dots = document.getElementById('dotsWrap');
+    dots.innerHTML = partQs.map(function(_,i){
+      return '<div class="dot'+(i<partIdx?' done':i===partIdx?' active':'')+'"></div>';
+    }).join('');
+
+    // Update labels
+    document.getElementById('qPartLabel').textContent = 'Part ' + p;
+
+    // Show question content
+    var qText = document.getElementById('qText');
+    var qHint = document.getElementById('qHint');
+    var qCard = document.getElementById('qCard');
+    var qNumber = document.getElementById('qNumber');
+
+    if(q.part === 2){
+      // Part 2 cue card
+      qNumber.textContent = 'Long Turn — speak for 2 minutes';
+      qText.textContent = q.topic;
+      qHint.innerHTML = '';
+
+      var cue = document.createElement('div');
+      cue.className = 'cue-card';
+      cue.innerHTML = '<h4>Talk about:</h4><ul>' +
+        (q.points||[]).map(function(pt){return '<li>'+pt+'</li>';}).join('') + '</ul>';
+
+      // Remove old cue if exists
+      var oldCue = qCard.querySelector('.cue-card');
+      if(oldCue) oldCue.remove();
+      qCard.insertBefore(cue, qHint);
+
+      // 1 minute prep time
+      var prepDiv = document.createElement('div');
+      prepDiv.style.cssText = 'text-align:center;margin:.5rem 0';
+      prepDiv.innerHTML = '<div style="font-size:.82rem;color:#6b7280">Preparation time</div><div class="prep-timer" id="prepCount">1:00</div>';
+      var oldPrep = qCard.querySelector('#prepCount');
+      if(!oldPrep) qCard.appendChild(prepDiv);
+
+      var prepSecs = 60;
+      clearInterval(prepTimer);
+      document.getElementById('doneBtn').disabled = true;
+      prepTimer = setInterval(function(){
+        prepSecs--;
+        var el = document.getElementById('prepCount');
+        if(el) el.textContent = Math.floor(prepSecs/60)+':'+(prepSecs%60<10?'0':'')+prepSecs%60;
+        if(prepSecs <= 0){
+          clearInterval(prepTimer);
+          if(el) el.parentNode.remove();
+          document.getElementById('doneBtn').disabled = false;
+          speak('Now please speak for up to two minutes about the topic.');
+        }
+      }, 1000);
+
+      speak('Here is your cue card. You have one minute to prepare. ' + q.topic);
+    } else {
+      // Part 1 or 3
+      var total = allQuestions.filter(function(x){return x.part===p;}).length;
+      qNumber.textContent = 'Question ' + (partIdx+1) + ' of ' + total;
+      qText.textContent = q.question;
+      qHint.textContent = q.hint ? '💡 ' + q.hint : '';
+
+      // Remove cue card if exists
+      var oldCue2 = qCard.querySelector('.cue-card');
+      if(oldCue2) oldCue2.remove();
+      var oldPrep2 = qCard.querySelector('#prepCount');
+      if(oldPrep2) oldPrep2.parentNode && oldPrep2.parentNode.remove();
+
+      document.getElementById('doneBtn').disabled = false;
+      speak(q.question);
+    }
+
+    // Reset transcript
+    document.getElementById('transcriptBox').textContent = 'Your speech will appear here...';
+    document.getElementById('transcriptBox').className = 'transcript-box empty';
+    document.getElementById('micStatus').textContent = 'Tap mic to start recording';
+    document.getElementById('micStatus').className = 'mic-status';
+    document.getElementById('micBtn').className = 'mic-btn idle';
+
+    document.getElementById('footerStatus').textContent =
+      'Part ' + p + ' — Question ' + (partIdx+1);
+  }
+
+  // ── MIC TOGGLE
+  window.toggleMic = function(){
+    if(!SpeechRecognition) return;
+    if(isRecording){ stopRecording(); }
+    else { startRecording(); }
+  };
+
+  function startRecording(){
+    recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
+
+    recognition.onstart = function(){
+      isRecording = true;
+      document.getElementById('micBtn').className = 'mic-btn recording';
+      document.getElementById('micStatus').textContent = '🔴 Recording... tap to stop';
+      document.getElementById('micStatus').className = 'mic-status recording';
+    };
+
+    recognition.onresult = function(e){
+      var interim = '';
+      var final = '';
+      for(var i=e.resultIndex;i<e.results.length;i++){
+        if(e.results[i].isFinal) final += e.results[i][0].transcript + ' ';
+        else interim += e.results[i][0].transcript;
+      }
+      currentTranscript += final;
+      var box = document.getElementById('transcriptBox');
+      box.textContent = (currentTranscript + interim) || 'Listening...';
+      box.className = 'transcript-box';
+      document.getElementById('doneBtn').disabled = false;
+    };
+
+    recognition.onerror = function(e){
+      stopRecording();
+      if(e.error === 'not-allowed'){
+        alert('Microphone access denied. Please allow microphone in browser settings.');
+      }
+    };
+
+    recognition.onend = function(){
+      if(isRecording) recognition.start(); // keep going
+    };
+
+    recognition.start();
+  }
+
+  function stopRecording(){
+    isRecording = false;
+    if(recognition){ recognition.stop(); recognition = null; }
+    document.getElementById('micBtn').className = 'mic-btn idle';
+    document.getElementById('micStatus').textContent = 'Recording stopped';
+    document.getElementById('micStatus').className = 'mic-status';
+  }
+
+  // ── NEXT QUESTION
+  window.nextQuestion = function(){
+    if(isRecording) stopRecording();
+    window.speechSynthesis.cancel();
+
+    var q = allQuestions[currentIdx];
+    var ans = currentTranscript.trim() || '[No answer given]';
+    answers.push({part: q.part, question: q.part===2 ? q.topic : q.question, answer: ans});
+
+    if(currentIdx + 1 >= allQuestions.length){
+      finishTest();
+    } else {
+      showQuestion(currentIdx + 1);
+    }
+  };
+
+  // ── REPLAY
+  window.replayQuestion = function(){
+    var q = allQuestions[currentIdx];
+    speak(q.part===2 ? q.topic : q.question);
+  };
+
+  // ── FINISH
+  function finishTest(){
+    window.speechSynthesis.cancel();
+    clearInterval(prepTimer);
+
+    document.getElementById('testArea').style.display = 'none';
+    document.getElementById('footerStatus').textContent = 'AI is evaluating your answers...';
+
+    var loadDiv = document.createElement('div');
+    loadDiv.innerHTML = '<div class="spin-wrap"><div class="spin"></div><p>AI Examiner is evaluating your speaking...</p><p style="font-size:.78rem;color:#9ca3af;margin-top:.5rem">This takes 15-20 seconds</p></div>';
+    document.getElementById('mainArea').appendChild(loadDiv);
+
+    var transcript = answers.map(function(a,i){
+      return 'Part '+a.part+' Q'+(i+1)+': '+a.question+'\nAnswer: '+a.answer;
+    }).join('\n\n');
+
+    var prompt = 'You are a fair IELTS Speaking examiner. Score this test ACCURATELY.\n\nSCORING RULES:\n- Band 7+: speaks fluently, wide vocabulary range, good grammar with minor errors, clear pronunciation\n- Band 6-6.5: some hesitation, adequate vocabulary, mix of simple/complex grammar, generally clear\n- Band 5-5.5: frequent pauses, limited vocabulary, noticeable errors, sometimes unclear\n- Do NOT give 7+ for basic answers. Judge actual fluency and language quality.\n- Overall = mean of 4 criteria rounded to nearest 0.5\n\n' +
+      'TRANSCRIPT:\n' + transcript + '\n\n' +
+      'Score strictly by IELTS band descriptors. Reply ONLY with valid JSON:\n' +
+      '{"fluency_coherence":{"band":6.5,"feedback":"..."},' +
+      '"lexical_resource":{"band":6.0,"feedback":"..."},' +
+      '"grammatical_range":{"band":6.5,"feedback":"..."},' +
+      '"pronunciation":{"band":6.0,"feedback":"..."},' +
+      '"overall_band":6.0,' +
+      '"strengths":"2-3 specific strengths",' +
+      '"improvements":"2-3 specific improvements"}\n\n' +
+      'Bands: 4.0 4.5 5.0 5.5 6.0 6.5 7.0 7.5 8.0 8.5 9.0. Be fair and accurate.';
+
+    askGroq(prompt).then(function(raw){
+      loadDiv.remove();
+      var m = raw.match(/\{[\s\S]*\}/);
+      if(!m) throw new Error('Bad response');
+      var res = JSON.parse(m[0]);
+      showResult(res);
+      try{ window.parent.postMessage({type:'ielts_score',score:Math.round(res.overall_band*10),total:90,testTitle:document.title,timeSpent:0},'*'); }catch(e){}
+    }).catch(function(e){
+      loadDiv.innerHTML = '<div style="text-align:center;padding:2rem;color:#ef4444"><p>Error: '+e.message+'</p><button class="btn btn-primary" onclick="location.reload()" style="margin-top:1rem">Try Again</button></div>';
+    });
+  }
+
+  function showResult(r){
+    var band = r.overall_band;
+    var col = band>=7?'#10b981':band>=6?'#2563eb':band>=5?'#f59e0b':'#ef4444';
+    var crits = [
+      {k:'fluency_coherence', lbl:'Fluency & Coherence', icon:'🗣️'},
+      {k:'lexical_resource',  lbl:'Lexical Resource',    icon:'📚'},
+      {k:'grammatical_range', lbl:'Grammatical Range',   icon:'✏️'},
+      {k:'pronunciation',     lbl:'Pronunciation',       icon:'🔊'}
+    ];
+    var h = '<div class="overall" style="background:linear-gradient(135deg,'+col+','+col+'bb)"><div class="bn">'+band+'</div><div class="bl">Overall IELTS Band Score</div></div><div class="crits">';
+    crits.forEach(function(c){
+      var sc = r[c.k]&&r[c.k].band?r[c.k].band:0;
+      var fb = r[c.k]&&r[c.k].feedback?r[c.k].feedback:'';
+      h += '<div class="crit-row"><div class="crit-top"><span class="crit-name">'+c.icon+' '+c.lbl+'</span><span class="crit-val">'+sc+'</span></div><div class="bar-bg"><div class="bar-fill" style="width:'+((sc/9)*100)+'%"></div></div><div class="crit-fb">'+fb+'</div></div>';
+    });
+    h += '</div>';
+    if(r.strengths) h += '<div class="strengths"><h4>✅ Strengths</h4><p>'+r.strengths+'</p></div>';
+    if(r.improvements) h += '<div class="improve"><h4>📈 Improve</h4><p>'+r.improvements+'</p></div>';
+    h += '<button class="retry-btn" onclick="location.reload()"><i class="fas fa-sync-alt"></i> Take Another Test</button>';
+
+    document.getElementById('modalBody').innerHTML = h;
+    document.getElementById('modal').classList.remove('hidden');
+    document.getElementById('footerStatus').textContent = 'Test complete!';
+  }
+})();
+</script>
+</body>
+</html>

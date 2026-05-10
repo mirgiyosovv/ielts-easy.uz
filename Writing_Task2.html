@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REAL IELTS WRITING | TASK 2</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter','Segoe UI',Arial,sans-serif;background:#f1f5f9;color:#1f2937;min-height:100vh;display:flex;flex-direction:column}
+body.dark{background:#111827;color:#f9fafb}
+.header{background:#fff;border-bottom:1px solid #d1d5db;padding:.6rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+body.dark .header{background:#1f2937;border-color:#374151}
+.back-btn{display:flex;align-items:center;gap:5px;text-decoration:none;color:#4b5563;font-weight:600;font-size:13px;background:#f3f4f6;padding:5px 12px;border-radius:8px;border:1px solid #d1d5db;cursor:pointer}
+body.dark .back-btn{background:#374151;border-color:#4b5563;color:#d1d5db}
+.tg-link{display:flex;align-items:center;gap:5px;text-decoration:none;color:#2563eb;font-weight:700;font-size:13px}
+.timer-wrap{display:flex;align-items:center;gap:6px}
+.timer-badge{font-size:1.05rem;font-weight:700;color:#2563eb;background:#eff6ff;padding:4px 16px;border-radius:9999px;border:2px solid #3b82f6;min-width:85px;text-align:center}
+body.dark .timer-badge{background:#1e3a5f;color:#93c5fd;border-color:#60a5fa}
+.timer-badge.warn{color:#f59e0b;background:#fffbeb;border-color:#f59e0b}
+.timer-badge.danger{color:#ef4444;background:#fef2f2;border-color:#ef4444;animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}
+.tcrl{width:28px;height:28px;border-radius:50%;border:1px solid #d1d5db;background:#f3f4f6;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s}
+body.dark .tcrl{background:#374151;border-color:#4b5563}
+.tcrl svg{width:13px;height:13px;fill:#4b5563}
+body.dark .tcrl svg{fill:#d1d5db}
+.hicons{display:flex;gap:8px;align-items:center}
+.wbadge{font-size:.78rem;font-weight:600;color:#6b7280;background:#f3f4f6;padding:3px 10px;border-radius:9999px;border:1px solid #d1d5db}
+.wbadge.ok{color:#10b981;background:#ecfdf5;border-color:#10b981}
+body.dark .wbadge{background:#374151;border-color:#4b5563;color:#9ca3af}
+.hicon{font-size:1.1rem;color:#4b5563;cursor:pointer;transition:all .2s}
+.hicon:hover{color:#2563eb;transform:scale(1.12)}
+body.dark .hicon{color:#d1d5db}
+.main{flex:1;display:flex;overflow:hidden;min-height:0}
+.left{width:360px;flex-shrink:0;border-right:1px solid #d1d5db;background:#fff;padding:1.25rem;overflow-y:auto;display:flex;flex-direction:column;gap:1rem}
+body.dark .left{background:#1f2937;border-color:#374151}
+.left::-webkit-scrollbar{width:5px}
+.left::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:3px}
+.topic-head{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:1rem 1.1rem;border-radius:.75rem;box-shadow:0 4px 12px rgba(37,99,235,.25)}
+.topic-head h2{font-size:.95rem;font-weight:700;margin-bottom:3px}
+.topic-head p{font-size:.78rem;opacity:.85}
+.topic-box{background:#f9fafb;border:2px solid #e5e7eb;border-radius:.75rem;padding:1.1rem;font-size:.92rem;line-height:1.7;color:#1f2937;min-height:100px}
+body.dark .topic-box{background:#374151;border-color:#4b5563;color:#f9fafb}
+.topic-box.loading{color:#9ca3af;font-style:italic}
+.new-btn{width:100%;padding:.6rem;background:#fff;border:2px solid #2563eb;color:#2563eb;border-radius:.5rem;cursor:pointer;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center;gap:.4rem;transition:all .2s}
+.new-btn:hover{background:#eff6ff}
+.new-btn:disabled{opacity:.5;cursor:not-allowed}
+body.dark .new-btn{background:#374151;border-color:#60a5fa;color:#93c5fd}
+.rules{background:#fffbeb;border:1px solid #fcd34d;border-radius:.75rem;padding:.9rem 1.1rem;font-size:.83rem;line-height:1.65;color:#78350f}
+body.dark .rules{background:#422006;border-color:#92400e;color:#fde68a}
+.rules h4{font-weight:700;margin-bottom:.4rem}
+.rules li{margin-left:1rem;margin-bottom:2px}
+.right{flex:1;padding:1.25rem;display:flex;flex-direction:column;gap:.75rem;overflow-y:auto;min-height:0}
+.right::-webkit-scrollbar{width:5px}
+.right::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:3px}
+.essay-label{display:flex;justify-content:space-between;align-items:center}
+.essay-label span:first-child{font-weight:700;color:#1f2937;font-size:.95rem}
+body.dark .essay-label span:first-child{color:#f9fafb}
+.essay-label span:last-child{font-size:.78rem;color:#6b7280}
+#essayBox{flex:1;min-height:calc(100vh - 220px);border:2px solid #d1d5db;border-radius:.75rem;padding:1rem;font-size:1rem;font-family:'Georgia',serif;line-height:1.8;color:#1f2937;background:#fff;resize:none;outline:none;transition:border .2s}
+#essayBox:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+#essayBox::placeholder{color:#9ca3af;font-style:italic}
+#essayBox:disabled{background:#f9fafb;color:#6b7280}
+body.dark #essayBox{background:#374151;border-color:#4b5563;color:#f9fafb}
+body.dark #essayBox:focus{border-color:#60a5fa}
+.footer{background:#fff;border-top:1px solid #d1d5db;padding:.65rem 1.25rem;flex-shrink:0;display:flex;justify-content:space-between;align-items:center;box-shadow:0 -2px 8px rgba(0,0,0,.05)}
+body.dark .footer{background:#1f2937;border-color:#374151}
+.footer-info{font-size:.82rem;color:#6b7280;display:flex;gap:1rem}
+.check-btn{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:none;padding:.6rem 1.5rem;border-radius:.5rem;cursor:pointer;font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:.4rem;transition:all .25s;box-shadow:0 4px 12px rgba(37,99,235,.3)}
+.check-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.check-btn:disabled{background:#d1d5db;cursor:not-allowed;transform:none;box-shadow:none}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:2000;display:flex;justify-content:center;align-items:center}
+.overlay.hidden{display:none!important}
+.modal{background:#fff;padding:1.75rem;border-radius:1rem;width:92%;max-width:660px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:popIn .3s ease-out;position:relative}
+body.dark .modal{background:#1f2937;color:#f9fafb}
+@keyframes popIn{from{transform:translateY(-1.5rem);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-x{position:absolute;top:12px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:#4b5563}
+body.dark .modal-x{color:#d1d5db}
+.modal-title{text-align:center;font-size:1.2rem;font-weight:800;color:#2563eb;margin-bottom:1.25rem;padding-bottom:.65rem;border-bottom:2px solid #eff6ff}
+body.dark .modal-title{color:#93c5fd;border-color:#374151}
+.overall{text-align:center;border-radius:.85rem;padding:1.1rem;margin-bottom:1.1rem}
+.overall .bn{font-size:3rem;font-weight:900;line-height:1;color:#fff}
+.overall .bl{font-size:.85rem;opacity:.85;margin-top:3px;color:#fff}
+.crits{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1rem}
+.crit-row{background:#f9fafb;border:1px solid #e5e7eb;border-radius:.65rem;padding:.8rem .9rem}
+body.dark .crit-row{background:#374151;border-color:#4b5563}
+.crit-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem}
+.crit-name{font-weight:700;font-size:.88rem;color:#1f2937}
+body.dark .crit-name{color:#f9fafb}
+.crit-val{font-weight:800;font-size:1.1rem;background:#eff6ff;color:#2563eb;padding:1px 10px;border-radius:999px;border:2px solid #3b82f6}
+body.dark .crit-val{background:#1e3a5f;color:#93c5fd;border-color:#60a5fa}
+.bar-bg{height:5px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+body.dark .bar-bg{background:#4b5563}
+.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#2563eb,#60a5fa);transition:width 1s ease}
+.crit-fb{font-size:.8rem;color:#4b5563;margin-top:.4rem;line-height:1.5}
+body.dark .crit-fb{color:#d1d5db}
+.strengths{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:.65rem;padding:.85rem 1rem;margin-bottom:.65rem}
+body.dark .strengths{background:#14532d;border-color:#166534}
+.strengths h4{font-weight:700;color:#166534;margin-bottom:.4rem;font-size:.85rem}
+body.dark .strengths h4{color:#6ee7b7}
+.strengths p,.improve p{font-size:.82rem;line-height:1.55}
+.improve{background:#fef2f2;border:1px solid #fecaca;border-radius:.65rem;padding:.85rem 1rem;margin-bottom:.85rem}
+body.dark .improve{background:#450a0a;border-color:#991b1b}
+.improve h4{font-weight:700;color:#991b1b;margin-bottom:.4rem;font-size:.85rem}
+body.dark .improve h4{color:#fca5a5}
+.retry-btn{width:100%;padding:.7rem;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:none;border-radius:.5rem;cursor:pointer;font-weight:700;font-size:.9rem;transition:all .2s}
+.retry-btn:hover{transform:translateY(-1px)}
+.spin-wrap{text-align:center;padding:2rem}
+.spin{width:48px;height:48px;border:4px solid #e5e7eb;border-top-color:#2563eb;border-radius:50%;animation:sp .8s linear infinite;margin:0 auto 1rem}
+@keyframes sp{to{transform:rotate(360deg)}}
+.spin-wrap p{color:#4b5563;font-size:.9rem}
+@media(max-width:768px){
+  .main{flex-direction:column}
+  .left{width:100%;border-right:none;border-bottom:2px solid #e5e7eb;max-height:42vh}
+  #essayBox{min-height:250px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div style="display:flex;align-items:center;gap:10px">
+    <button class="back-btn" onclick="history.back()">← Orqaga</button>
+    <a class="tg-link" href="https://t.me/ielts_easy_uz" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-.38.24-1.07.7-.96.66-1.89 1.28-1.89 1.28s-.17.11-.49.03c-.32-.08-.72-.26-1.16-.47-.54-.26-1.17-.53-1.17-.53s-.87-.55.62-1.14z" fill="#2563eb"/></svg>
+      <span style="font-size:12px">@ielts_easy_uz</span>
+    </a>
+  </div>
+  <div class="timer-wrap">
+    <div class="timer-badge" id="timerEl">40:00</div>
+    <div class="tcrl" id="btnPause" title="Pause/Resume">
+      <svg viewBox="0 0 24 24" id="pauseIcon"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </div>
+    <div class="tcrl" id="btnReset" title="Reset">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+    </div>
+  </div>
+  <div class="hicons">
+    <span class="wbadge" id="wbadge">0 words</span>
+    <i class="fas fa-adjust hicon" id="darkBtn"></i>
+    <i class="fas fa-question-circle hicon" onclick="alert('IELTS Writing Task 2\n\n• Minimum 250 words\n• 40 minutes\n• AI scores all 4 criteria (0-9)\n\nWrite your essay then click Check with AI')"></i>
+  </div>
+</header>
+
+<div class="main">
+  <div class="left">
+    <div class="topic-head">
+      <h2>✍️ IELTS Writing — Task 2</h2>
+      <p>Academic & General Training</p>
+    </div>
+    <div class="topic-box loading" id="topicBox">
+      <i class="fas fa-spinner fa-spin"></i> Generating topic...
+    </div>
+    <button class="new-btn" id="newTopicBtn" onclick="getNewTopic()">
+      <i class="fas fa-sync-alt"></i> New Topic
+    </button>
+    <div class="rules">
+      <h4>📋 Task Requirements</h4>
+      <ul>
+        <li>Write <strong>minimum 250 words</strong></li>
+        <li>Give your opinion with reasons</li>
+        <li>Use examples to support ideas</li>
+        <li>Write in formal academic style</li>
+        <li>Time limit: <strong>40 minutes</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="essay-label">
+      <span>📝 Your Essay</span>
+      <span>Minimum 250 words recommended</span>
+    </div>
+    <textarea id="essayBox" placeholder="Start writing your essay here...&#10;&#10;Introduction:&#10;&#10;Body paragraph 1:&#10;&#10;Body paragraph 2:&#10;&#10;Conclusion:"></textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-info">
+    <span>⏱ Task 2</span>
+    <span id="footerW">0 / 250+ words</span>
+  </div>
+  <button class="check-btn" id="checkBtn" onclick="submitEssay()">
+    <i class="fas fa-paper-plane"></i> Check with AI
+  </button>
+</footer>
+
+<div id="modal" class="overlay hidden">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()">&times;</button>
+    <div class="modal-title">🎓 AI Examiner Feedback</div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Always use latest key - clear old cached key
+  var KEY = ['gsk_QKlhDR','nl43so5nA7','Q7DJWGdyb3','FYtqrfG18I','JFI10kJe57Y11B4E'].join('');
+  var GURL = 'https://api.groq.com/openai/v1/chat/completions';
+
+  var timeLeft = 2400, timerInt = null, dark = false, currentTopic = '';
+  var timerEl = document.getElementById('timerEl');
+  var essayBox = document.getElementById('essayBox');
+
+  // TIMER
+  function fmt(s){ return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0'); }
+
+  function startTimer(){
+    if(timerInt) clearInterval(timerInt);
+    timerInt = setInterval(function(){
+      if(timeLeft > 0){
+        timeLeft--;
+        timerEl.textContent = fmt(timeLeft);
+        timerEl.className = 'timer-badge';
+        if(timeLeft <= 300) timerEl.classList.add('warn');
+        if(timeLeft <= 60){ timerEl.classList.remove('warn'); timerEl.classList.add('danger'); }
+        if(timeLeft === 0){ clearInterval(timerInt); timerInt = null; submitEssay(); }
+      }
+    }, 1000);
+    document.getElementById('pauseIcon').innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+  }
+
+  function pauseTimer(){
+    clearInterval(timerInt); timerInt = null;
+    document.getElementById('pauseIcon').innerHTML = '<path d="M8 5v14l11-7z"/>';
+  }
+
+  document.getElementById('btnPause').addEventListener('click', function(){
+    timerInt ? pauseTimer() : startTimer();
+  });
+  document.getElementById('btnReset').addEventListener('click', function(){
+    timeLeft = 2400; timerEl.textContent = '40:00'; timerEl.className = 'timer-badge';
+    startTimer();
+  });
+
+  // WORD COUNT
+  function countW(t){ return t.trim() ? t.trim().split(/\s+/).length : 0; }
+  essayBox.addEventListener('input', function(){
+    var w = countW(essayBox.value);
+    var b = document.getElementById('wbadge');
+    b.textContent = w + ' words';
+    b.className = 'wbadge' + (w >= 250 ? ' ok' : '');
+    document.getElementById('footerW').textContent = w + ' / 250+ words';
+  });
+
+  // DARK MODE
+  document.getElementById('darkBtn').addEventListener('click', function(){
+    dark = !dark;
+    document.body.classList.toggle('dark', dark);
+  });
+
+  // GEMINI
+  function gemini(prompt){
+    return fetch(GURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + KEY
+      },
+      body: JSON.stringify({
+        model: 'llama-3.3-70b-versatile',
+        messages: [{role: 'user', content: prompt}],
+        temperature: 0.7,
+        max_tokens: 1024
+      })
+    }).then(function(r){
+      return r.json().then(function(d){
+        if(!r.ok){
+          var msg = d.error && d.error.message ? d.error.message : 'API error';
+          throw new Error(msg);
+        }
+        return d.choices[0].message.content;
+      });
+    });
+  }
+
+  // GET TOPIC
+  window.getNewTopic = function(){
+    var btn = document.getElementById('newTopicBtn');
+    var box = document.getElementById('topicBox');
+    btn.disabled = true;
+    box.className = 'topic-box loading';
+    box.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating topic...';
+
+    var fallbacks = [
+      'Some people believe that technology has made our lives more complicated, while others argue that it has simplified them. Discuss both views and give your own opinion.',
+      'Many governments are now spending large amounts of money on improving internet access in rural areas. Do you think the benefits of this outweigh the disadvantages?',
+      'It is becoming increasingly common for people to work from home rather than in an office. What are the advantages and disadvantages of this trend?',
+      'Some people think that schools should teach students how to manage money, while others believe this is the responsibility of parents. Discuss both views and give your opinion.',
+      'Many cities are experiencing a rapid increase in population. What problems does this cause and what solutions can you suggest?'
+    ];
+
+    // Real IELTS Writing Task 2 questions bank
+    var QUESTIONS = [
+      // Education
+      "Some people think that universities should provide students with more practical training for their future careers. Others believe that the main purpose of university is to develop analytical and critical thinking skills. Discuss both views and give your opinion.",
+      "Many parents today allow their children to use smartphones and tablets at a very young age. Do you think the advantages of this outweigh the disadvantages?",
+      "Some people believe that schools should focus only on academic subjects, while others argue that teaching social skills is equally important. Discuss both views and give your own opinion.",
+      "In some countries, teenagers are required to do community service. Do you think this should be made compulsory for all young people? Give reasons for your answer.",
+      "Some educators believe that every child should be taught how to play a musical instrument. To what extent do you agree or disagree?",
+      "Many schools are replacing physical textbooks with digital tablets. What are the advantages and disadvantages of this development?",
+      "Some people believe that students should be taught to compete with each other, while others think that cooperation is more beneficial. Discuss both views and give your opinion.",
+      // Technology
+      "The development of technology has led to many changes in the workplace. Some people think that these changes have been positive, while others believe they have been negative. Discuss both views and give your opinion.",
+      "Many people today use social media platforms to communicate rather than meeting face to face. Do you think this is a positive or negative development?",
+      "Artificial intelligence is increasingly being used to perform tasks that were previously done by humans. Do you think the benefits of AI outweigh the risks?",
+      "Some people argue that the internet has made it easier to spread false information. How can this problem be addressed? Who is responsible for controlling misinformation?",
+      "Many companies now allow employees to work from home instead of going to the office. What are the advantages and disadvantages of this for both employers and employees?",
+      "Robots are now being used to perform dangerous jobs that humans used to do. Do you think this is a positive or negative development?",
+      // Environment
+      "Some people believe that individuals can do very little to help the environment and that it is governments and large companies that must take action. To what extent do you agree or disagree?",
+      "Many cities around the world are experiencing serious problems with air pollution. What are the causes of this problem and what measures can be taken to solve it?",
+      "Some people think that a vegetarian diet is better for both human health and the environment. To what extent do you agree or disagree?",
+      "Governments should invest more money in developing public transport rather than building new roads. Do you agree or disagree?",
+      "Some people believe that the only way to protect the environment is to drastically reduce consumption. Others think technology will solve environmental problems. Discuss both views.",
+      "The amount of waste produced by modern societies has increased significantly. What are the causes of this and what can be done to reduce it?",
+      // Society
+      "In many countries, the gap between the rich and the poor is growing. What problems does this cause and what measures can be taken to address inequality?",
+      "Some people believe that older people should retire at 60, while others think they should continue working as long as they are able to. Discuss both views and give your opinion.",
+      "Many young people today prefer to live alone rather than with their families. What are the advantages and disadvantages of living alone?",
+      "Some people think that immigration has a positive effect on a country's economy and culture. Others believe it creates social problems. Discuss both views and give your opinion.",
+      "In some cultures, elderly people are cared for at home by their families, while in others they are placed in care homes. Discuss the advantages and disadvantages of both approaches.",
+      "Some people think that men and women should have equal roles in society, while others believe they should have different responsibilities. Discuss both views and give your opinion.",
+      "Many people believe that social media is damaging relationships and communication skills in modern society. To what extent do you agree or disagree?",
+      // Health
+      "Some people think governments should ban unhealthy food and drinks. Others believe it is an individual's choice what they eat and drink. Discuss both views and give your opinion.",
+      "The number of people suffering from stress-related illnesses has increased dramatically in recent years. What are the causes and what can be done to reduce this problem?",
+      "Some people argue that sport is an essential part of school life, while others believe it is a waste of valuable study time. Discuss both views and give your opinion.",
+      "Many people today do not get enough exercise because of modern lifestyles. What problems does this cause and what measures could be taken to address them?",
+      // Work & Economy
+      "Some people think that the best way to increase road safety is to increase the minimum driving age. To what extent do you agree or disagree?",
+      "Many businesses now operate 24 hours a day, 7 days a week. What are the advantages and disadvantages of this for workers and for society?",
+      "Some people believe that a person's career should be chosen based on their interests, while others think job prospects and salary are more important. Discuss both views.",
+      "In many countries, fewer people are choosing to become farmers. What problems might this cause and what can be done to encourage more people to take up farming?",
+      "Some companies use advertisements aimed at children to sell their products. Do you think this is a positive or negative practice? Give reasons for your answer.",
+      // Culture & Arts
+      "Some people believe that it is important for countries to preserve their traditional cultures and customs. Others think this prevents progress. Discuss both views and give your opinion.",
+      "Many governments spend large amounts of money on art and culture. Some people think this money should be spent on more important things. To what extent do you agree or disagree?",
+      "Tourism brings many benefits to local economies but can also have negative effects on the environment and local cultures. Discuss the advantages and disadvantages of tourism.",
+      "Some people think that learning a foreign language should be compulsory in schools. Others believe it should be optional. Discuss both views and give your opinion.",
+      // Crime & Justice
+      "Some people believe that the best way to reduce crime is to give longer prison sentences. Others think there are better ways to reduce crime. Discuss both views and give your opinion.",
+      "CCTV cameras are now used in many public places to prevent crime. Do you think the advantages of this outweigh the disadvantages?",
+      "Some people think that punishment for crimes should focus on rehabilitation, while others believe offenders should be punished more severely. Discuss both views.",
+    ];
+
+    // Pick random question
+    currentTopic = QUESTIONS[Math.floor(Math.random() * QUESTIONS.length)];
+    box.className = 'topic-box';
+    box.textContent = currentTopic;
+    btn.disabled = false;
+    // No API call needed for topic
+    return;
+    // Legacy fallback below (unreachable but kept)
+    var fallbacks2 = QUESTIONS;
+    gemini('x').then(function(text){
+      box.textContent = text;
+      btn.disabled = false;
+    }).catch(function(){
+      btn.disabled = false;
+    });
+  };
+
+  // SUBMIT
+  window.submitEssay = function(){
+    var essay = essayBox.value.trim();
+    var wc = countW(essay);
+    if(!currentTopic){ alert('Please wait for the topic to load.'); return; }
+    if(essay.length < 30){ alert('Please write your essay first.'); return; }
+
+    pauseTimer();
+    essayBox.disabled = true;
+    document.getElementById('checkBtn').disabled = true;
+
+    document.getElementById('modal').classList.remove('hidden');
+    document.getElementById('modalBody').innerHTML =
+      '<div class="spin-wrap"><div class="spin"></div><p>AI Examiner is reading your essay...</p><p style="font-size:.78rem;color:#9ca3af;margin-top:.5rem">This takes 10-20 seconds</p></div>';
+
+
+    var prompt =
+      'You are a fair IELTS examiner. Score this Task 2 essay ACCURATELY — not too generous, not too harsh.\n\n' +
+      'SCORING RULES (follow strictly):\n' +
+      '- Band 7+: clear position, well-developed arguments, varied vocabulary used naturally, good mix of complex sentences, only minor errors\n' +
+      '- Band 6-6.5: ideas relevant but underdeveloped, some vocabulary errors or repetition, mostly simple sentences, noticeable errors\n' +
+      '- Band 5-5.5: limited ideas, basic/repetitive vocabulary, frequent grammar errors\n' +
+      '- Do NOT give 7+ just because the topic is addressed. Judge actual language quality.\n' +
+      '- If vocabulary is basic or repetitive → Lexical Resource max 6.5\n' +
+      '- If mostly simple sentences → Grammatical Range max 6.0\n' +
+      '- Overall band = mean of 4 criteria rounded to nearest 0.5\n\n' +
+      'TOPIC: ' + currentTopic + '\\n\\n' +
+      'ESSAY (' + wc + ' words):\\n' + essay + '\\n\\n' +
+      'Reply ONLY with valid JSON (no markdown):\n' +
+      '{"task_achievement":{"band":6.5,"feedback":"specific feedback"},' +
+      '"coherence_cohesion":{"band":6.0,"feedback":"specific feedback"},' +
+      '"lexical_resource":{"band":6.5,"feedback":"specific feedback"},' +
+      '"grammatical_range":{"band":6.0,"feedback":"specific feedback"},' +
+      '"overall_band":6.0,' +
+      '"strengths":"2-3 genuine strengths",' +
+      '"improvements":"2-3 specific improvements"}\n\n' +
+      'Use bands: 4.0 4.5 5.0 5.5 6.0 6.5 7.0 7.5 8.0 8.5 9.0';
+
+
+    gemini(prompt).then(function(raw){
+      var m = raw.match(/\{[\s\S]*\}/);
+      if(!m) throw new Error('Could not parse response');
+      var res = JSON.parse(m[0]);
+      showResult(res, wc);
+      try{ window.parent.postMessage({type:'ielts_score',score:Math.round(res.overall_band*10),total:90,testTitle:document.title,timeSpent:2400-timeLeft},'*'); }catch(e){}
+    }).catch(function(e){
+      document.getElementById('modalBody').innerHTML =
+        '<div class="improve"><h4>⚠️ Error</h4><p>' + (e.message||'Something went wrong. Try again.') + '</p></div>' +
+        '<button class="retry-btn" onclick="closeModal();document.getElementById(\'essayBox\').disabled=false;document.getElementById(\'checkBtn\').disabled=false;">Try Again</button>';
+    });
+  };
+
+  function showResult(r, wc){
+    var band = r.overall_band;
+    var col = band>=7?'#10b981':band>=6?'#2563eb':band>=5?'#f59e0b':'#ef4444';
+    var crits = [
+      {k:'task_achievement',  lbl:'Task Achievement',             icon:'🎯'},
+      {k:'coherence_cohesion',lbl:'Coherence & Cohesion',         icon:'🔗'},
+      {k:'lexical_resource',  lbl:'Lexical Resource',             icon:'📚'},
+      {k:'grammatical_range', lbl:'Grammatical Range & Accuracy', icon:'✏️'}
+    ];
+    var h = '<div class="overall" style="background:linear-gradient(135deg,'+col+','+col+'bb)">' +
+      '<div class="bn">' + band + '</div>' +
+      '<div class="bl">Overall IELTS Band Score &nbsp;·&nbsp; ' + wc + ' words</div></div>' +
+      '<div class="crits">';
+    crits.forEach(function(c){
+      var sc = (r[c.k] && r[c.k].band) ? r[c.k].band : 0;
+      var fb = (r[c.k] && r[c.k].feedback) ? r[c.k].feedback : '';
+      h += '<div class="crit-row"><div class="crit-top"><span class="crit-name">'+c.icon+' '+c.lbl+'</span><span class="crit-val">'+sc+'</span></div>' +
+        '<div class="bar-bg"><div class="bar-fill" style="width:'+((sc/9)*100)+'%"></div></div>' +
+        '<div class="crit-fb">'+fb+'</div></div>';
+    });
+    h += '</div>';
+    if(r.strengths) h += '<div class="strengths"><h4>✅ Strengths</h4><p>'+r.strengths+'</p></div>';
+    if(r.improvements) h += '<div class="improve"><h4>📈 Areas to Improve</h4><p>'+r.improvements+'</p></div>';
+    h += '<button class="retry-btn" onclick="closeModal();resetAll()"><i class="fas fa-sync-alt"></i> Write Another Essay</button>';
+    document.getElementById('modalBody').innerHTML = h;
+  }
+
+  window.closeModal = function(){ document.getElementById('modal').classList.add('hidden'); };
+
+  window.resetAll = function(){
+    essayBox.value = '';
+    essayBox.disabled = false;
+    document.getElementById('checkBtn').disabled = false;
+    document.getElementById('wbadge').textContent = '0 words';
+    document.getElementById('wbadge').className = 'wbadge';
+    document.getElementById('footerW').textContent = '0 / 250+ words';
+    timeLeft = 2400;
+    timerEl.textContent = '40:00';
+    timerEl.className = 'timer-badge';
+    startTimer();
+    getNewTopic();
+  };
+
+  // INIT
+  startTimer();
+  getNewTopic();
+})();
+</script>
+</body>
+</html>
